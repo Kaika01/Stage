@@ -7,12 +7,10 @@ require_once ("modele/ktPDO.class.php");
     $_SESSION['user_privilége'] = '';
     
 //Connexion a la base de données.
-    ktPDO::set_host();
-    ktPDO::set_type();
-    ktPDO::set_base();
-    ktPDO::set_user();
-    ktPDO::set_password();
-$uc = 'forum';
+    ktPDO::set_base('forum');
+
+    
+$uc = 'Doforum';
 //Switch pour les controleurs
     switch($uc){
         case 'Dologin' :
@@ -37,7 +35,7 @@ $uc = 'forum';
     switch($uc){
         case 'forum' :
         {
-            include("vues/forum.php");
+            include("vues/v_forum.php");
             break;
         }
         case '' :
