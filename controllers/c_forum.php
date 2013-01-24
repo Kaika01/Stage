@@ -15,6 +15,6 @@
     $req->closecursor();
     
     
-    include('vues/v_forum.php');
+    include('views/v_forum.php');
 
 ?>

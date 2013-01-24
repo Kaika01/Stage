@@ -1,31 +1,40 @@
 <?php
-require_once ("modele/ktPDO.class.php");
-
+require_once ("libraries/ktPDO.class.php");
+require ("config/constants.php");
 //Création de la session
     session_start();
     $_SESSION['user_name'] = '';
-    $_SESSION['user_privilége'] = '';
+    $_SESSION['user_privilege'] = '';
     
 //Connexion a la base de données.
     ktPDO::set_base('forum');
-
     
-$uc = 'Doforum';
+//initialise ou récupére la variable "uc" permetant de l'accés aux pages.
+if(!isset($_REQUEST['uc'])){
+	$_REQUEST['uc'] = 'Viewforum';
+} 
+$uc = $_REQUEST['uc'];
+
 //Switch pour les controleurs
     switch($uc){
         case 'Dologin' :
         {
-            include("controleurs/c_login.php"); 
+            include("controllers/c_login.php"); 
             break;
         }
         case 'Dologout' :
         {
-            include("controleurs/c_logout.php");
+            include("controllers/c_logout.php");
             break;
         }
-        case 'Doforum' :
+        case 'Viewforum' :
         {
-            include("controleurs/c_forum.php");
+            include("controllers/c_forum.php");
+            break;
+        }
+        case 'ViewTopic' :
+        {
+            include("controllers/c_topic.php");
             break;
         }
     }
@@ -35,12 +44,12 @@ $uc = 'Doforum';
     switch($uc){
         case 'forum' :
         {
-            include("vues/v_forum.php");
+            include("views/v_forum.php");
             break;
         }
-        case '' :
+        case 'topic' :
         {
-            include("vues/.php");
+            include("views/v_topic.php");
             break;
         }
     }
