@@ -9,6 +9,33 @@ require ("config/constants.php");
 //Connexion a la base de données.
     ktPDO::set_base('forum');
     
+//Je pige comment sa marche mais je sais pas l'utiliser
+    function q($segment = '')
+    {
+        $query = explode('/', $_GET['query']);
+
+        if (!empty($query))
+        {
+            if (array_key_exists($segment, $query))
+            {
+                return $query[$segment];
+            }
+            else
+            {
+                return FALSE;
+            }
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+//undefined index : query
+    q($_GET['query']);
+    
+    
+    
+    
 //initialise ou récupére la variable "uc" permetant de l'accés aux pages.
 if(!isset($_REQUEST['uc'])){
 	$_REQUEST['uc'] = 'Viewforum';
