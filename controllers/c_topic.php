@@ -4,7 +4,7 @@
                                 FROM topics 
                                 LEFT JOIN posts 
                                 ON topic_id = post_topic 
-                                WHERE topic_id = ".$_GET['topic_id']."
+                                WHERE topic_id = ".$_GET['query']."
                                 ORDER BY topic_id ASC, post_id ASC");
     
     $topics = array();

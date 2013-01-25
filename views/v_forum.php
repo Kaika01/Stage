@@ -19,8 +19,8 @@
             {
                 echo '<td>'.$value['categorie_name'].'</td>';
             }
-                echo '<td><a href="index.php?uc=ViewTopic&topic_id='
-                    .$value['topic_id'].'">'.$value['topic_name'].'</td>';
+                echo '<td><a href="forum/topic_'
+                    .$value['topic_id'].'.html">'.$value['topic_name'].'</td>';
                 echo '<td>'.$value['topic_date'].'</td>';
             echo '</TR>';
         }   

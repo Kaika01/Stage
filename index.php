@@ -9,7 +9,7 @@ require ("config/constants.php");
 //Connexion a la base de données.
     ktPDO::set_base('forum');
     
-//Je pige comment sa marche mais je sais pas l'utiliser
+/*Je pige comment sa marche mais je sais pas l'utiliser
     function q($segment = '')
     {
         $query = explode('/', $_GET['query']);
@@ -31,16 +31,15 @@ require ("config/constants.php");
         }
     }
 //undefined index : query
-    q($_GET['query']);
-    
-    
+    q($_GET['query']);*/
+
     
     
 //initialise ou récupére la variable "uc" permetant de l'accés aux pages.
-if(!isset($_REQUEST['uc'])){
-	$_REQUEST['uc'] = 'Viewforum';
+if(!isset($_GET['query'])){
+	$_GET['query'] = 'Viewforum';
 } 
-$uc = $_REQUEST['uc'];
+$uc = $_GET['query'];
 
 //Switch pour les controleurs
     switch($uc){
@@ -59,7 +58,7 @@ $uc = $_REQUEST['uc'];
             include("controllers/c_forum.php");
             break;
         }
-        case 'ViewTopic' :
+        case '1' :
         {
             include("controllers/c_topic.php");
             break;
